@@ -3,9 +3,15 @@
 
 require 'socket'
 
-host = 'www.is.kyusan-u.ac.jp'
+# http://www.is.kyusan-u.ac.jp/
+
+host = ARGV[0]
 port = 'http'
-path = '/~toshi/'
+path = ARGV[1]
+if path == nil
+  path = '/'
+end
+
 
 sock = TCPSocket.new host, port
 cmd  = "GET #{path} HTTP/1.1\r\n"
