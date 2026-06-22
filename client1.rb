@@ -8,9 +8,13 @@ port = 'http'
 path = '/~toshi/'
 
 sock = TCPSocket.new host, port
-cmd = 'GET ' + path + " HTTP/1.0\r\n\r\n"
+cmd = 'GET ' + path + " HTTP/1.1\r\n"
+cmd2 = 'Host: ' + host + "\r\n"
+cmd_end = "\r\n"
 pp cmd
 sock.print cmd
+sock.print cmd2
+sock.print cmd_end
 
 is_body = false
 while line = sock.gets
