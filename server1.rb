@@ -4,6 +4,7 @@
 require 'socket'
 
 def server s
+  pp "START"
   while line=s.gets
     pp line
     s.puts line
