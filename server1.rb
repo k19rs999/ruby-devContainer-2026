@@ -18,8 +18,12 @@ def server s
     pp "INDEX"
     s.puts "<h1>index</h1>"
   else
-    pp "OTHER"
-    s.puts "other"
+    file=path.slice 1..-1
+    File.open(file, "r") do |f|
+      while line = f.gets
+        s.puts line
+      end
+    end
   end
   s.close
 end
